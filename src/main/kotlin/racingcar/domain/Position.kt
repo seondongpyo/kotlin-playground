@@ -4,6 +4,12 @@ class Position(
     private var value: Int
 ) {
 
+    init {
+        if (value < DEFAULT_VALUE) {
+            throw IllegalArgumentException()
+        }
+    }
+
     constructor(): this(DEFAULT_VALUE)
 
     companion object {
