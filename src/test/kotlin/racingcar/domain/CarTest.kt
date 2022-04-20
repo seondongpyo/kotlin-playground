@@ -23,7 +23,15 @@ class CarTest {
     @Test
     fun move() {
         val car = Car("james")
-        car.move()
+        car.move(AlwaysMoveStrategy())
+        assertThat(car.isLocatedAt(1)).isTrue
+    }
+
+    @DisplayName("자동차가 멈추면 위치 값은 그대로 유지한다.")
+    @Test
+    fun stop() {
+        val car = Car("james", 1)
+        car.move(AlwaysStopStrategy())
         assertThat(car.isLocatedAt(1)).isTrue
     }
 }

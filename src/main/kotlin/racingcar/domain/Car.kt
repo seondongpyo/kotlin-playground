@@ -32,7 +32,9 @@ class Car(
         return result
     }
 
-    fun move() {
-        position.increase()
+    fun move(strategy: MoveStrategy) {
+        if (strategy.isMovable()) {
+            position.increase()
+        }
     }
 }
