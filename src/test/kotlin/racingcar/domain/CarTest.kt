@@ -18,4 +18,12 @@ class CarTest {
         val car = Car("james")
         assertThat(car.isLocatedAt(0)).isTrue
     }
+
+    @DisplayName("자동차가 전진하면 위치 값이 1 증가한다.")
+    @Test
+    fun move() {
+        val car = Car("james")
+        car.move()
+        assertThat(car.isLocatedAt(1)).isTrue
+    }
 }

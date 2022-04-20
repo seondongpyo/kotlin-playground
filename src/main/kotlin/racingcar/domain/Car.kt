@@ -31,4 +31,8 @@ class Car(
         result = 31 * result + position.hashCode()
         return result
     }
+
+    fun move() {
+        position.increase()
+    }
 }

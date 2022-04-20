@@ -16,6 +16,10 @@ class Position(
         const val DEFAULT_VALUE = 0
     }
 
+    fun increase() {
+        value += 1
+    }
+
     fun value(): Int {
         return value
     }
