@@ -8,7 +8,7 @@ class Car(
     private val name = Name(name)
     private val position = Position(position)
 
-    constructor(name: String) : this(name, 0)
+    constructor(name: String) : this(name, Position.DEFAULT_VALUE)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true

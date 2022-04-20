@@ -10,10 +10,10 @@ class Position(
         }
     }
 
-    constructor(): this(DEFAULT_VALUE)
+    constructor() : this(DEFAULT_VALUE)
 
     companion object {
-        private const val DEFAULT_VALUE = 0
+        const val DEFAULT_VALUE = 0
     }
 
     fun value(): Int {
