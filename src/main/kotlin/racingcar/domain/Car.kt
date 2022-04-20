@@ -1,8 +1,14 @@
 package racingcar.domain
 
-class Car(name: String) {
+class Car(
+    name: String,
+    position: Int
+) {
 
-    private val name: Name = Name(name)
+    private val name = Name(name)
+    private val position = Position(position)
+
+    constructor(name: String) : this(name, 0)
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
@@ -11,11 +17,14 @@ class Car(name: String) {
         other as Car
 
         if (name != other.name) return false
+        if (position != other.position) return false
 
         return true
     }
 
     override fun hashCode(): Int {
-        return name.hashCode()
+        var result = name.hashCode()
+        result = 31 * result + position.hashCode()
+        return result
     }
 }
