@@ -10,6 +10,10 @@ class Car(
 
     constructor(name: String) : this(name, Position.DEFAULT_VALUE)
 
+    fun isLocatedAt(position: Int): Boolean {
+        return this.position == Position(position)
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
