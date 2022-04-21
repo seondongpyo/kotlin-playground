@@ -1,5 +1,7 @@
 package racingcar.domain
 
+import kotlin.math.max
+
 class Position(
     private var value: Int
 ) {
@@ -22,6 +24,10 @@ class Position(
 
     fun value(): Int {
         return value
+    }
+
+    fun findGreaterPosition(position: Int): Int {
+        return max(value, position)
     }
 
     override fun equals(other: Any?): Boolean {

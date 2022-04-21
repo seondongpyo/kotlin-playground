@@ -14,6 +14,16 @@ class Car(
         return this.position == Position(position)
     }
 
+    fun move(strategy: MoveStrategy) {
+        if (strategy.isMovable()) {
+            position.increase()
+        }
+    }
+
+    fun findFurtherPosition(position: Int): Int {
+        return this.position.findGreaterPosition(position)
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
@@ -30,11 +40,5 @@ class Car(
         var result = name.hashCode()
         result = 31 * result + position.hashCode()
         return result
-    }
-
-    fun move(strategy: MoveStrategy) {
-        if (strategy.isMovable()) {
-            position.increase()
-        }
     }
 }
