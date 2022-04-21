@@ -27,4 +27,8 @@ class Cars(
         return position
     }
 
+    fun cars(): List<Car> {
+        return cars
+    }
+
 }

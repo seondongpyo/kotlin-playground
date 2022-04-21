@@ -13,4 +13,8 @@ class RacingGame(
     fun isEnd(): Boolean {
         return attemptCount.isZero()
     }
+
+    fun cars(): List<Car> {
+        return cars.cars()
+    }
 }
