@@ -22,6 +22,10 @@ class AttemptCount(
         return value == 0
     }
 
+    fun value(): Int {
+        return value
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

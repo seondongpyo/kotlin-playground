@@ -19,4 +19,12 @@ class AttemptCountTest {
         assertThatThrownBy { AttemptCount(0) }
             .isInstanceOf(IllegalArgumentException::class.java)
     }
+
+    @DisplayName("시도 횟수가 1 감소")
+    @Test
+    fun decrease() {
+        val attemptCount = AttemptCount(2)
+        attemptCount.decrease()
+        assertThat(attemptCount.value()).isEqualTo(1)
+    }
 }
