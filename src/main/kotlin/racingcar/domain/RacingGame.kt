@@ -14,6 +14,10 @@ class RacingGame(
         return attemptCount.isZero()
     }
 
+    fun winners(): List<Car> {
+        return cars.winners()
+    }
+
     fun cars(): List<Car> {
         return cars.cars()
     }

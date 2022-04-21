@@ -1,6 +1,7 @@
 package racingcar.view
 
 import racingcar.domain.Car
+import java.util.stream.Collectors
 
 class ResultView {
 
@@ -21,6 +22,13 @@ class ResultView {
                 builder.append(SYMBOL)
             }
             return builder.toString()
+        }
+
+        fun showWinners(winners: List<Car>) {
+            val winnerNames = winners.stream()
+                .map { winner -> winner.name() }
+                .collect(Collectors.joining(","))
+            println("우승자는 %s 입니다.".format(winnerNames))
         }
     }
 }

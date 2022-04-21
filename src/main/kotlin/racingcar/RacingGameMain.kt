@@ -19,4 +19,5 @@ fun main() {
         racingGame.race(RandomMoveStrategy())
         ResultView.showPosition(racingGame.cars())
     }
+    ResultView.showWinners(racingGame.winners())
 }
