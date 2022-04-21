@@ -22,12 +22,12 @@ class Position(
         value += 1
     }
 
-    fun value(): Int {
-        return value
-    }
-
     fun findGreaterPosition(position: Int): Int {
         return max(value, position)
+    }
+
+    fun value(): Int {
+        return value
     }
 
     override fun equals(other: Any?): Boolean {

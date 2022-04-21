@@ -14,6 +14,10 @@ class Name(
         private const val MAX_LENGTH = 5
     }
 
+    fun value(): String {
+        return value
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

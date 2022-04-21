@@ -24,6 +24,14 @@ class Car(
         return this.position.findGreaterPosition(position)
     }
 
+    fun name(): String {
+        return name.value()
+    }
+
+    fun position(): Int {
+        return position.value()
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
