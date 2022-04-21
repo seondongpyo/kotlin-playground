@@ -1,5 +1,6 @@
 package racingcar.domain
 
+import java.util.stream.Collectors
 import kotlin.streams.toList
 
 class CarNames(
@@ -9,6 +10,13 @@ class CarNames(
     private val names = names.split(",")
                             .stream()
                             .toList()
+
+    fun toCars(): Cars {
+        val cars = names.stream()
+            .map { name -> Car(name) }
+            .collect(Collectors.toList())
+        return Cars(cars)
+    }
 
     fun names(): List<String> {
         return names
