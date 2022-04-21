@@ -1,7 +1,7 @@
 package racingcar.domain
 
 class AttemptCount(
-    private val value: Int
+    private var value: Int
 ) {
 
     init {
@@ -12,6 +12,14 @@ class AttemptCount(
 
     companion object {
         private const val MIN_VALUE = 1
+    }
+
+    fun decrease() {
+        value -= 1
+    }
+
+    fun isZero(): Boolean {
+        return value == 0
     }
 
     override fun equals(other: Any?): Boolean {

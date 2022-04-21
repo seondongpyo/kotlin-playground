@@ -6,6 +6,12 @@ class Cars(
     private val cars: List<Car>
 ) {
 
+    fun race(strategy: MoveStrategy) {
+        for (car in cars) {
+            car.move(strategy)
+        }
+    }
+
     fun winners(): List<Car> {
         val maxPosition = findMaxPosition()
         return cars.stream()
