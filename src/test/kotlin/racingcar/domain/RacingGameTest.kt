@@ -17,4 +17,16 @@ class RacingGameTest {
 
         assertThat(racingGame.isEnd()).isFalse
     }
+
+    @DisplayName("자동차 경주 - 완주 상태")
+    @Test
+    fun finish() {
+        val cars = Cars(listOf(Car("Son"), Car("Kane"), Car("Lucas")))
+        val attemptCount = AttemptCount(1)
+
+        val racingGame = RacingGame(cars, attemptCount)
+        racingGame.race(AlwaysMoveStrategy())
+
+        assertThat(racingGame.isEnd()).isTrue
+    }
 }
