@@ -1,6 +1,8 @@
 package lotto.domain
 
-class LottoNumber(value: Int) {
+class LottoNumber(
+    private val value: Int
+) {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
