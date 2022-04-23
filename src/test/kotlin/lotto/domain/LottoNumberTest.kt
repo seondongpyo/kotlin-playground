@@ -17,9 +17,10 @@ class LottoNumberTest {
     }
 
     @DisplayName("유효하지 않은 로또 번호")
-    @Test
-    fun invalid() {
-        assertThatThrownBy { LottoNumber(0) }
+    @ValueSource(ints = [0, 46])
+    @ParameterizedTest
+    fun invalid(value: Int) {
+        assertThatThrownBy { LottoNumber(value) }
             .isInstanceOf(IllegalArgumentException::class.java)
     }
 }
