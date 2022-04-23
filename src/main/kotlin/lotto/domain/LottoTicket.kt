@@ -13,9 +13,13 @@ class LottoTicket(
             .map { number -> LottoNumber(number) }
             .collect(Collectors.toSet())
 
-        if (this.numbers.size != 6) {
+        if (this.numbers.size != VALID_SIZE) {
             throw IllegalArgumentException()
         }
+    }
+
+    companion object {
+        private const val VALID_SIZE = 6
     }
 
     override fun equals(other: Any?): Boolean {
