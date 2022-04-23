@@ -12,6 +12,10 @@ class LottoTicket(
         this.numbers = numbers.stream()
             .map { number -> LottoNumber(number) }
             .collect(Collectors.toSet())
+
+        if (this.numbers.size != 6) {
+            throw IllegalArgumentException()
+        }
     }
 
     override fun equals(other: Any?): Boolean {
