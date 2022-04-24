@@ -19,4 +19,11 @@ class LottoTicketTest {
         assertThatThrownBy { LottoTicket(listOf(1, 2, 3, 4, 5, 5)) }
             .isInstanceOf(IllegalArgumentException::class.java)
     }
+
+    @DisplayName("로또 티켓에 특정 로또 번호가 포함되어 있는지 확인")
+    @Test
+    fun contains() {
+        val lottoTicket = LottoTicket(listOf(1, 2, 3, 4, 5, 6))
+        assertThat(lottoTicket.contains(LottoNumber(1))).isTrue
+    }
 }

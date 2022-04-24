@@ -22,6 +22,10 @@ class LottoTicket(
         private const val VALID_SIZE = 6
     }
 
+    fun contains(target: LottoNumber): Boolean {
+        return false
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
