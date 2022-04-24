@@ -23,7 +23,7 @@ class LottoTicket(
     }
 
     fun contains(target: LottoNumber): Boolean {
-        return false
+        return numbers.contains(target)
     }
 
     override fun equals(other: Any?): Boolean {
