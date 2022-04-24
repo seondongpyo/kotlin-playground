@@ -13,9 +13,13 @@ enum class LottoRank(
     companion object {
         fun from(matchCount: Int): LottoRank {
             return Arrays.stream(values())
-                .filter { rank -> rank.matchCount == matchCount }
+                .filter { rank -> rank.hasCount(matchCount) }
                 .findFirst()
                 .orElse(NONE)
         }
+    }
+
+    fun hasCount(matchCount: Int): Boolean {
+        return this.matchCount == matchCount
     }
 }
