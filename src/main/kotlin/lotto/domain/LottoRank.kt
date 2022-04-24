@@ -4,8 +4,8 @@ enum class LottoRank {
     FIRST;
 
     companion object {
-        fun from(matchCount: Int): Unit? {
-            return null
+        fun from(matchCount: Int): LottoRank {
+            return FIRST
         }
     }
 }
