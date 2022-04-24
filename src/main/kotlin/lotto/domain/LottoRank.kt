@@ -6,7 +6,10 @@ enum class LottoRank {
 
     companion object {
         fun from(matchCount: Int): LottoRank {
-            return FIRST
+            if (matchCount == 6) {
+                return FIRST
+            }
+            return SECOND
         }
     }
 }
