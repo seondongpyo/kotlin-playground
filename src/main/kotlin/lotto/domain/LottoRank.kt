@@ -8,6 +8,8 @@ enum class LottoRank(
 
     FIRST(6),
     SECOND(5),
+    THIRD(4),
+    FOURTH(3),
     NONE(0);
 
     companion object {
