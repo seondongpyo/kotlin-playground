@@ -6,9 +6,15 @@ import org.junit.jupiter.api.Test
 
 class LottoRankTest {
 
-    @DisplayName("일치하는 로또 번호 개수에 따른 당첨 결과를 반환")
+    @DisplayName("로또 당첨 결과 - 1등")
     @Test
-    fun rank() {
+    fun first() {
         assertThat(LottoRank.from(6)).isEqualTo(LottoRank.FIRST)
+    }
+
+    @DisplayName("로또 당첨 결과 - 2등")
+    @Test
+    fun second() {
+        assertThat(LottoRank.from(5)).isEqualTo(LottoRank.SECOND)
     }
 }
