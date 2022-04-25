@@ -37,6 +37,6 @@ class LottoTicket(
     }
 
     fun match(lottoTicket: LottoTicket): LottoRank {
-        return LottoRank.NONE
+        return LottoRank.FIRST
     }
 }
