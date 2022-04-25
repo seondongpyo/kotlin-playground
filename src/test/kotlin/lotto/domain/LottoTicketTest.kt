@@ -26,4 +26,11 @@ class LottoTicketTest {
         val lottoTicket = LottoTicket(listOf(1, 2, 3, 4, 5, 6))
         assertThat(lottoTicket.contains(LottoNumber(1))).isTrue
     }
+
+    @DisplayName("로또 티켓끼리 비교하여 당첨 결과 확인")
+    @Test
+    fun match() {
+        val lottoTicket = LottoTicket(listOf(1, 2, 3, 4, 5, 6))
+        assertThat(lottoTicket.match(LottoTicket(listOf(1, 2, 3, 4, 5, 6)))).isEqualTo(LottoRank.FIRST)
+    }
 }

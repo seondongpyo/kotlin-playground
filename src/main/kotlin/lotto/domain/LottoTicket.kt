@@ -35,4 +35,8 @@ class LottoTicket(
     override fun hashCode(): Int {
         return javaClass.hashCode()
     }
+
+    fun match(lottoTicket: LottoTicket): LottoRank {
+        return LottoRank.NONE
+    }
 }
