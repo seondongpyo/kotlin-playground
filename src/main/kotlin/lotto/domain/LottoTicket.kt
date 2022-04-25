@@ -22,6 +22,14 @@ class LottoTicket(
         private const val VALID_SIZE = 6
     }
 
+    fun match(lottoTicket: LottoTicket): LottoRank {
+        val count = numbers.stream()
+            .filter { number -> lottoTicket.contains(number) }
+            .count()
+            .toInt()
+        return LottoRank.from(count)
+    }
+
     fun contains(target: LottoNumber): Boolean {
         return numbers.contains(target)
     }
@@ -34,9 +42,5 @@ class LottoTicket(
 
     override fun hashCode(): Int {
         return javaClass.hashCode()
-    }
-
-    fun match(lottoTicket: LottoTicket): LottoRank {
-        return LottoRank.FIRST
     }
 }
