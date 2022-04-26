@@ -18,4 +18,20 @@ class LottoTicketsTest {
 
         assertThat(lottoTickets.size()).isEqualTo(3)
     }
+
+    @DisplayName("로또 티켓 묶음과 당첨 번호를 비교하여 모든 당첨 결과를 구한다.")
+    @Test
+    fun match() {
+        val lottoTickets = LottoTickets(
+            listOf(
+                LottoTicket(listOf(1, 2, 3, 4, 5, 6)),
+                LottoTicket(listOf(1, 2, 3, 4, 5, 7)),
+                LottoTicket(listOf(1, 2, 3, 4, 7, 8)),
+            ))
+
+        val winningLottoTicket = LottoTicket(listOf(1, 2, 3, 4, 5, 6))
+
+        assertThat(lottoTickets.match(winningLottoTicket))
+            .containsExactly(LottoRank.FIRST, LottoRank.SECOND, LottoRank.THIRD)
+    }
 }

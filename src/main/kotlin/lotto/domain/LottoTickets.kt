@@ -8,4 +8,8 @@ class LottoTickets(
         return tickets.size
     }
 
+    fun match(winningLottoTicket: LottoTicket): List<LottoRank> {
+        return emptyList()
+    }
+
 }
