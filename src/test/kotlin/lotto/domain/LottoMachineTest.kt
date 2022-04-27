@@ -2,15 +2,17 @@ package lotto.domain
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
-import org.junit.jupiter.api.Test
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.ValueSource
 
 class LottoMachineTest {
 
     @DisplayName("입력한 금액만큼 로또 티켓을 발급 (1000원당 1장)")
-    @Test
-    fun issueLottoTickets() {
+    @ValueSource(ints = [5_000, 9_999])
+    @ParameterizedTest
+    fun issueLottoTickets(money: Int) {
         val lottoTicketMachine = LottoTicketMachine()
-        val lottoTickets = lottoTicketMachine.issueLottoTickets(5000)
-        assertThat(lottoTickets.size()).isEqualTo(5)
+        val lottoTickets = lottoTicketMachine.issueLottoTickets(money)
+        assertThat(lottoTickets.size()).isEqualTo(money / 1_000)
     }
 }
