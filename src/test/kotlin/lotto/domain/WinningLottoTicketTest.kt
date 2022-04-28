@@ -20,4 +20,11 @@ class WinningLottoTicketTest {
         assertThatThrownBy { WinningLottoTicket(listOf(1, 2, 3, 4, 5, 6), 6) }
             .isInstanceOf(IllegalArgumentException::class.java)
     }
+
+    @DisplayName("당첨 확인 결과, 로또 번호가 5개 일치하고 보너스 번호가 일치하면 2등")
+    @Test
+    fun second() {
+        val winningLottoTicket = WinningLottoTicket(listOf(1, 2, 3, 4, 5, 6), 7)
+        assertThat(winningLottoTicket.match(LottoTicket(listOf(1, 2, 3, 4, 5, 7)))).isEqualTo(LottoRank.SECOND)
+    }
 }

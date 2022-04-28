@@ -11,6 +11,10 @@ class WinningLottoTicket(
         }
     }
 
+    fun match(purchasedTicket: LottoTicket): LottoRank {
+        return LottoRank.NONE
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
