@@ -31,10 +31,10 @@ class LottoTicketTest {
         assertThat(lottoTicket.contains(LottoNumber(1))).isTrue
     }
 
-    @DisplayName("로또 티켓끼리 비교하여 당첨 결과 확인")
+    @DisplayName("로또 티켓끼리 비교하여 일치하는 번호의 개수 확인")
     @MethodSource("matchArguments")
     @ParameterizedTest
-    fun match(numbers: List<Int>, result: LottoRank) {
+    fun match(numbers: List<Int>, result: Int) {
         val lottoTicket = LottoTicket(listOf(1, 2, 3, 4, 5, 6))
         assertThat(lottoTicket.match(LottoTicket(numbers))).isEqualTo(result)
     }
@@ -43,13 +43,13 @@ class LottoTicketTest {
         @JvmStatic
         fun matchArguments(): Stream<Arguments> {
             return Stream.of(
-                Arguments.of(listOf(1, 2, 3, 4, 5, 6), LottoRank.FIRST),
-                Arguments.of(listOf(1, 2, 3, 4, 5, 7), LottoRank.SECOND),
-                Arguments.of(listOf(1, 2, 3, 4, 7, 8), LottoRank.THIRD),
-                Arguments.of(listOf(1, 2, 3, 7, 8, 9), LottoRank.FOURTH),
-                Arguments.of(listOf(1, 2, 7, 8, 9, 10), LottoRank.NONE),
-                Arguments.of(listOf(1, 7, 8, 9, 10, 11), LottoRank.NONE),
-                Arguments.of(listOf(7, 8, 9, 10, 11, 12), LottoRank.NONE),
+                Arguments.of(listOf(1, 2, 3, 4, 5, 6), 6),
+                Arguments.of(listOf(1, 2, 3, 4, 5, 7), 5),
+                Arguments.of(listOf(1, 2, 3, 4, 7, 8), 4),
+                Arguments.of(listOf(1, 2, 3, 7, 8, 9), 3),
+                Arguments.of(listOf(1, 2, 7, 8, 9, 10), 2),
+                Arguments.of(listOf(1, 7, 8, 9, 10, 11), 1),
+                Arguments.of(listOf(7, 8, 9, 10, 11, 12), 0),
             )
         }
     }

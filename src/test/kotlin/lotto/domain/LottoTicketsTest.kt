@@ -29,7 +29,7 @@ class LottoTicketsTest {
                 LottoTicket(listOf(1, 2, 3, 4, 7, 8)),
             ))
 
-        val winningLottoTicket = LottoTicket(listOf(1, 2, 3, 4, 5, 6))
+        val winningLottoTicket = WinningLottoTicket(listOf(1, 2, 3, 4, 5, 6), 7)
 
         assertThat(lottoTickets.match(winningLottoTicket))
             .containsExactly(LottoRank.FIRST, LottoRank.SECOND, LottoRank.THIRD)

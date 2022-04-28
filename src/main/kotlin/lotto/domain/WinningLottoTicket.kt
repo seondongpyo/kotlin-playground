@@ -15,7 +15,7 @@ class WinningLottoTicket(
     }
 
     fun match(purchasedTicket: LottoTicket): LottoRank {
-        val matchCount = purchasedTicket.matchCount(ticket)
+        val matchCount = purchasedTicket.match(ticket)
         val hasBonusNumber = purchasedTicket.contains(bonusNumber)
         return LottoRank.from(matchCount, hasBonusNumber)
     }

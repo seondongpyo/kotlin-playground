@@ -12,8 +12,8 @@ class LottoRankTest {
     @DisplayName("일치하는 로또 번호 개수에 따른 로또 당첨 결과 반환")
     @MethodSource("rankPerCountArguments")
     @ParameterizedTest
-    fun rankPerCount(matchCount: Int, rank: LottoRank) {
-        assertThat(LottoRank.from(matchCount)).isEqualTo(rank)
+    fun rankPerCount(matchCount: Int, hasBonusNumber: Boolean, rank: LottoRank) {
+        assertThat(LottoRank.from(matchCount, hasBonusNumber)).isEqualTo(rank)
     }
 
     companion object {
@@ -21,13 +21,13 @@ class LottoRankTest {
         @JvmStatic
         fun rankPerCountArguments(): Stream<Arguments> {
             return Stream.of(
-                Arguments.of(6, LottoRank.FIRST),
-                Arguments.of(5, LottoRank.SECOND),
-                Arguments.of(4, LottoRank.THIRD),
-                Arguments.of(3, LottoRank.FOURTH),
-                Arguments.of(2, LottoRank.NONE),
-                Arguments.of(1, LottoRank.NONE),
-                Arguments.of(0, LottoRank.NONE),
+                Arguments.of(6, false, LottoRank.FIRST),
+                Arguments.of(5, true, LottoRank.SECOND),
+                Arguments.of(4, false, LottoRank.THIRD),
+                Arguments.of(3, false, LottoRank.FOURTH),
+                Arguments.of(2, false, LottoRank.NONE),
+                Arguments.of(1, false, LottoRank.NONE),
+                Arguments.of(0, false, LottoRank.NONE),
             )
         }
     }

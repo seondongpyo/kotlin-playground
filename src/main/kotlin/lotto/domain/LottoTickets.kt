@@ -10,9 +10,9 @@ class LottoTickets(
         return tickets.size
     }
 
-    fun match(winningLottoTicket: LottoTicket): List<LottoRank> {
+    fun match(winningLottoTicket: WinningLottoTicket): List<LottoRank> {
         return tickets.stream()
-            .map { ticket -> ticket.match(winningLottoTicket) }
+            .map { ticket -> winningLottoTicket.match(ticket) }
             .collect(Collectors.toList())
     }
 

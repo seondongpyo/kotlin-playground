@@ -22,17 +22,9 @@ class LottoTicket(
         private const val VALID_SIZE = 6
     }
 
-    fun match(lottoTicket: LottoTicket): LottoRank {
-        val count = numbers.stream()
-            .filter { number -> lottoTicket.contains(number) }
-            .count()
-            .toInt()
-        return LottoRank.from(count)
-    }
-
-    fun matchCount(ticket: LottoTicket): Int {
+    fun match(lottoTicket: LottoTicket): Int {
         return numbers.stream()
-            .filter { number -> ticket.contains(number) }
+            .filter { number -> lottoTicket.contains(number) }
             .count()
             .toInt()
     }
