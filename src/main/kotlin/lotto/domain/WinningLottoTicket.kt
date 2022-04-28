@@ -1,6 +1,9 @@
 package lotto.domain
 
-class WinningLottoTicket(numbers: List<Int>, bonusNumber: Int) {
+class WinningLottoTicket(
+    numbers: List<Int>,
+    bonusNumber: Int
+) {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
