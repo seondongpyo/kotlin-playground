@@ -5,6 +5,9 @@ class WinningLottoTicket(
     bonusNumber: Int
 ) {
 
+    private val ticket = LottoTicket(numbers)
+    private val bonusNumber = LottoNumber(bonusNumber)
+
     init {
         if (numbers.contains(bonusNumber)) {
             throw IllegalArgumentException()
@@ -12,7 +15,9 @@ class WinningLottoTicket(
     }
 
     fun match(purchasedTicket: LottoTicket): LottoRank {
-        return LottoRank.NONE
+        val matchCount = purchasedTicket.matchCount(ticket)
+        val hasBonusNumber = purchasedTicket.contains(bonusNumber)
+        return LottoRank.from(matchCount, hasBonusNumber)
     }
 
     override fun equals(other: Any?): Boolean {

@@ -20,6 +20,17 @@ enum class LottoRank(
                 .findFirst()
                 .orElse(NONE)
         }
+
+        fun from(matchCount: Int, hasBonusNumber: Boolean): LottoRank {
+            if (matchCount == 5 && hasBonusNumber) {
+                return SECOND
+            }
+
+            return Arrays.stream(values())
+                .filter { rank -> rank.hasCount(matchCount) }
+                .findFirst()
+                .orElse(NONE)
+        }
     }
 
     fun hasCount(matchCount: Int): Boolean {

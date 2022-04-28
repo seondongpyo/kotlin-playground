@@ -30,6 +30,13 @@ class LottoTicket(
         return LottoRank.from(count)
     }
 
+    fun matchCount(ticket: LottoTicket): Int {
+        return numbers.stream()
+            .filter { number -> ticket.contains(number) }
+            .count()
+            .toInt()
+    }
+
     fun contains(target: LottoNumber): Boolean {
         return numbers.contains(target)
     }
