@@ -5,7 +5,7 @@ import java.util.stream.IntStream
 
 class LottoTicketMachine {
 
-    private val lottoNumberPool = IntStream.rangeClosed(1, 45)
+    private val lottoNumberPool = IntStream.rangeClosed(LottoNumber.MIN_VALUE, LottoNumber.MAX_VALUE)
         .boxed()
         .collect(Collectors.toList())
 

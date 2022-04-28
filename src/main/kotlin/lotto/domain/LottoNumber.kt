@@ -11,8 +11,8 @@ class LottoNumber(
     }
 
     companion object {
-        private const val MIN_VALUE = 1
-        private const val MAX_VALUE = 45
+        const val MIN_VALUE = 1
+        const val MAX_VALUE = 45
     }
 
     override fun equals(other: Any?): Boolean {
