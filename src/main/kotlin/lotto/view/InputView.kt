@@ -12,6 +12,16 @@ class InputView {
             return scanner.nextInt()
         }
 
+        fun manualLottoTicketCount(): Int {
+            println("수동으로 구매할 로또 수를 입력해 주세요.")
+            return scanner.nextInt()
+        }
+
+        fun manualLottoTicketNumbers(): String {
+            println("수동으로 구매할 번호를 입력해 주세요.")
+            return scanner.next()
+        }
+
         fun winningNumbers(): String {
             println("지난 주 당첨 번호를 입력해 주세요.")
             return scanner.next()
