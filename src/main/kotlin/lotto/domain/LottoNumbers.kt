@@ -21,7 +21,7 @@ class LottoNumbers(
     }
 
     fun toLottoTicket(): LottoTicket {
-        return LottoTicket(listOf(1, 1, 1, 1, 1, 1))
+        return LottoTicket(numbers.toList())
     }
 
     override fun equals(other: Any?): Boolean {
