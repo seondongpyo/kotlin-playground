@@ -14,28 +14,28 @@ class LottoTicketTest {
     @DisplayName("6개의 번호로 로또 티켓 생성")
     @Test
     fun create() {
-        assertThat(LottoTicket(listOf(1, 2, 3, 4, 5, 6))).isEqualTo(LottoTicket(listOf(1, 2, 3, 4, 5, 6)))
+        assertThat(LottoTicket(setOf(1, 2, 3, 4, 5, 6))).isEqualTo(LottoTicket(setOf(1, 2, 3, 4, 5, 6)))
     }
 
     @DisplayName("인자로 전달된 번호에 중복이 있다면 로또 티켓 생성 시 예외가 발생")
     @Test
     fun invalid() {
-        assertThatThrownBy { LottoTicket(listOf(1, 2, 3, 4, 5, 5)) }
+        assertThatThrownBy { LottoTicket(setOf(1, 2, 3, 4, 5, 5)) }
             .isInstanceOf(IllegalArgumentException::class.java)
     }
 
     @DisplayName("로또 티켓에 특정 로또 번호가 포함되어 있는지 확인")
     @Test
     fun contains() {
-        val lottoTicket = LottoTicket(listOf(1, 2, 3, 4, 5, 6))
+        val lottoTicket = LottoTicket(setOf(1, 2, 3, 4, 5, 6))
         assertThat(lottoTicket.contains(LottoNumber(1))).isTrue
     }
 
     @DisplayName("로또 티켓끼리 비교하여 일치하는 번호의 개수 확인")
     @MethodSource("matchArguments")
     @ParameterizedTest
-    fun match(numbers: List<Int>, result: Int) {
-        val lottoTicket = LottoTicket(listOf(1, 2, 3, 4, 5, 6))
+    fun match(numbers: Set<Int>, result: Int) {
+        val lottoTicket = LottoTicket(setOf(1, 2, 3, 4, 5, 6))
         assertThat(lottoTicket.match(LottoTicket(numbers))).isEqualTo(result)
     }
 
@@ -43,13 +43,13 @@ class LottoTicketTest {
         @JvmStatic
         fun matchArguments(): Stream<Arguments> {
             return Stream.of(
-                Arguments.of(listOf(1, 2, 3, 4, 5, 6), 6),
-                Arguments.of(listOf(1, 2, 3, 4, 5, 7), 5),
-                Arguments.of(listOf(1, 2, 3, 4, 7, 8), 4),
-                Arguments.of(listOf(1, 2, 3, 7, 8, 9), 3),
-                Arguments.of(listOf(1, 2, 7, 8, 9, 10), 2),
-                Arguments.of(listOf(1, 7, 8, 9, 10, 11), 1),
-                Arguments.of(listOf(7, 8, 9, 10, 11, 12), 0),
+                Arguments.of(setOf(1, 2, 3, 4, 5, 6), 6),
+                Arguments.of(setOf(1, 2, 3, 4, 5, 7), 5),
+                Arguments.of(setOf(1, 2, 3, 4, 7, 8), 4),
+                Arguments.of(setOf(1, 2, 3, 7, 8, 9), 3),
+                Arguments.of(setOf(1, 2, 7, 8, 9, 10), 2),
+                Arguments.of(setOf(1, 7, 8, 9, 10, 11), 1),
+                Arguments.of(setOf(7, 8, 9, 10, 11, 12), 0),
             )
         }
     }

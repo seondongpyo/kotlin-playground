@@ -1,7 +1,7 @@
 package lotto.domain
 
 class WinningLottoTicket(
-    numbers: List<Int>,
+    numbers: Set<Int>,
     bonusNumber: Int
 ) {
 

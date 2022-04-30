@@ -3,7 +3,7 @@ package lotto.domain
 import java.util.stream.Collectors
 
 class LottoTicket(
-    numbers: List<Int>
+    numbers: Set<Int>
 ) {
 
     private val numbers: Set<LottoNumber>

@@ -11,9 +11,9 @@ class LottoTicketsTest {
     fun create() {
         val lottoTickets = LottoTickets(
             listOf(
-                LottoTicket(listOf(1, 2, 3, 4, 5, 6)),
-                LottoTicket(listOf(7, 8, 9, 10, 11, 12)),
-                LottoTicket(listOf(13, 14, 15, 16, 17, 18)),
+                LottoTicket(setOf(1, 2, 3, 4, 5, 6)),
+                LottoTicket(setOf(7, 8, 9, 10, 11, 12)),
+                LottoTicket(setOf(13, 14, 15, 16, 17, 18)),
             ))
 
         assertThat(lottoTickets.size()).isEqualTo(3)
@@ -24,12 +24,12 @@ class LottoTicketsTest {
     fun match() {
         val lottoTickets = LottoTickets(
             listOf(
-                LottoTicket(listOf(1, 2, 3, 4, 5, 6)),
-                LottoTicket(listOf(1, 2, 3, 4, 5, 7)),
-                LottoTicket(listOf(1, 2, 3, 4, 7, 8)),
+                LottoTicket(setOf(1, 2, 3, 4, 5, 6)),
+                LottoTicket(setOf(1, 2, 3, 4, 5, 7)),
+                LottoTicket(setOf(1, 2, 3, 4, 7, 8)),
             ))
 
-        val winningLottoTicket = WinningLottoTicket(listOf(1, 2, 3, 4, 5, 6), 7)
+        val winningLottoTicket = WinningLottoTicket(setOf(1, 2, 3, 4, 5, 6), 7)
 
         assertThat(lottoTickets.match(winningLottoTicket))
             .containsExactly(LottoRank.FIRST, LottoRank.SECOND, LottoRank.THIRD)

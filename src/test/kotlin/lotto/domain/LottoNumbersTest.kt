@@ -17,6 +17,6 @@ class LottoNumbersTest {
     @Test
     fun toLottoTicket() {
         val numbers = LottoNumbers.of(1, 2, 3, 4, 5, 6)
-        assertThat(numbers.toLottoTicket()).isEqualTo(LottoTicket(listOf(1, 2, 3, 4, 5, 6)))
+        assertThat(numbers.toLottoTicket()).isEqualTo(LottoTicket(setOf(1, 2, 3, 4, 5, 6)))
     }
 }

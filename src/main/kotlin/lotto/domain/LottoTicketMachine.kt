@@ -22,12 +22,12 @@ class LottoTicketMachine {
         return LottoTickets(lottoTickets)
     }
 
-    private fun pickLottoNumbers(): List<Int> {
+    private fun pickLottoNumbers(): Set<Int> {
         lottoNumberPool.shuffle()
         return IntStream.range(0, 6)
             .mapToObj { index -> lottoNumberPool[index] }
             .sorted()
-            .collect(Collectors.toList())
+            .collect(Collectors.toSet())
     }
 
 }
