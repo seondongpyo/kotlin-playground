@@ -29,4 +29,8 @@ enum class LottoRank(
     fun hasCount(matchCount: Int): Boolean {
         return this.matchCount == matchCount
     }
+
+    fun prizeMoney(): Int {
+        return this.prizeMoney
+    }
 }

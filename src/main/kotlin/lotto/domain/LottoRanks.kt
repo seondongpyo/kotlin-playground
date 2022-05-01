@@ -1,9 +1,14 @@
 package lotto.domain
 
-class LottoRanks(ranks: List<LottoRank>) {
+class LottoRanks(
+    private val ranks: List<LottoRank>
+) {
 
     fun totalPrize(): Int {
-        return 0
+        return ranks.stream()
+            .mapToInt { rank -> rank.prizeMoney() }
+            .sum()
+            .toInt()
     }
 
 }
