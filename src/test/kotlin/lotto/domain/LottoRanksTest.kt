@@ -4,6 +4,7 @@ import lotto.domain.LottoRank.*
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
+import java.math.BigDecimal
 
 class LottoRanksTest {
 
@@ -11,6 +12,6 @@ class LottoRanksTest {
     @Test
     fun totalPrize() {
         val ranks = LottoRanks(listOf(FIRST, SECOND, THIRD, FOURTH, NONE))
-        assertThat(ranks.totalPrize()).isEqualTo(2_001_555_000)
+        assertThat(ranks.totalPrize()).isEqualTo(BigDecimal.valueOf(2_001_555_000))
     }
 }
