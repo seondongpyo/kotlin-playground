@@ -5,9 +5,13 @@ class LottoMoney(
 ) {
 
     init {
-        if (value < 1_000) {
+        if (value < MONEY_PER_TICKET) {
             throw IllegalArgumentException()
         }
+    }
+
+    companion object {
+        private const val MONEY_PER_TICKET = 1_000
     }
 
     override fun equals(other: Any?): Boolean {
