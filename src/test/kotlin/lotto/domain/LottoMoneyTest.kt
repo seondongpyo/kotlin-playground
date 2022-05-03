@@ -19,4 +19,11 @@ class LottoMoneyTest {
         assertThatThrownBy { LottoMoney(999) }
             .isInstanceOf(IllegalArgumentException::class.java)
     }
+
+    @DisplayName("주어진 금액으로 구매 가능한 로또 매수 계산")
+    @Test
+    fun availableLottoTicketCount() {
+        val lottoMoney = LottoMoney(5000)
+        assertThat(lottoMoney.availableLottoTicketCount()).isEqualTo(5)
+    }
 }
