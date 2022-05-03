@@ -15,7 +15,7 @@ class LottoMoney(
     }
 
     fun availableLottoTicketCount(): Int {
-        TODO("Not yet implemented")
+        return value / MONEY_PER_TICKET
     }
 
     override fun equals(other: Any?): Boolean {
