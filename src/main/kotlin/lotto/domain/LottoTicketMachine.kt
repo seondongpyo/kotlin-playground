@@ -13,10 +13,9 @@ class LottoTicketMachine {
         private const val MONEY_PER_TICKET = 1_000
     }
 
-    fun issueLottoTickets(money: Int): LottoTickets {
-        val lottoTicketCount = money / MONEY_PER_TICKET
+    fun issueLottoTickets(count: Int): LottoTickets {
         val lottoTickets = arrayListOf<LottoTicket>()
-        for (index in 0 until lottoTicketCount) {
+        for (index in 0 until count) {
             lottoTickets.add(LottoTicket(pickLottoNumbers()))
         }
         return LottoTickets(lottoTickets)

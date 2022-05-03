@@ -11,8 +11,9 @@ class LottoMachineTest {
     @ValueSource(ints = [5_000, 9_999])
     @ParameterizedTest
     fun issueLottoTickets(money: Int) {
+        val lottoTicketCount = LottoMoney(money).availableLottoTicketCount()
         val lottoTicketMachine = LottoTicketMachine()
-        val lottoTickets = lottoTicketMachine.issueLottoTickets(money)
-        assertThat(lottoTickets.size()).isEqualTo(money / 1_000)
+        val lottoTickets = lottoTicketMachine.issueLottoTickets(lottoTicketCount)
+        assertThat(lottoTickets.size()).isEqualTo(lottoTicketCount)
     }
 }
