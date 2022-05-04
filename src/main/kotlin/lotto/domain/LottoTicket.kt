@@ -33,6 +33,13 @@ class LottoTicket(
         return numbers.contains(target)
     }
 
+    fun numbers(): List<Int> {
+        return numbers.stream()
+            .map { number -> number.value() }
+            .sorted()
+            .collect(Collectors.toList())
+    }
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false

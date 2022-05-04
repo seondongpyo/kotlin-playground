@@ -16,4 +16,8 @@ class LottoTickets(
             .collect(Collectors.toList())
     }
 
+    fun tickets(): List<LottoTicket> {
+        return tickets
+    }
+
 }

@@ -1,0 +1,17 @@
+package lotto
+
+import lotto.domain.*
+import lotto.view.InputView
+import lotto.view.ResultView
+
+fun main() {
+    val money = LottoMoney(InputView.money())
+    val lottoMachine = LottoTicketMachine()
+    val lottoTickets = lottoMachine.issueLottoTickets(money.availableLottoTicketCount())
+    ResultView.showPurchasedLottoTickets(lottoTickets)
+
+    val winningNumbers = LottoNumbers.from(InputView.winningNumbers())
+    val bonusNumber = InputView.bonusNumber()
+    val winningLottoTicket = WinningLottoTicket(winningNumbers.toLottoTicket(), LottoNumber(bonusNumber))
+
+}
