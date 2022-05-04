@@ -1,15 +1,14 @@
 package lotto.domain
 
 class WinningLottoTicket(
-    numbers: Set<Int>,
-    bonusNumber: Int
+    private val ticket: LottoTicket,
+    private val bonusNumber: LottoNumber
 ) {
-
-    private val ticket = LottoTicket(numbers)
-    private val bonusNumber = LottoNumber(bonusNumber)
+    constructor(numbers: Set<Int>, bonusNumber: Int)
+            : this(LottoTicket(numbers), LottoNumber(bonusNumber))
 
     init {
-        if (numbers.contains(bonusNumber)) {
+        if (ticket.contains(bonusNumber)) {
             throw IllegalArgumentException()
         }
     }
