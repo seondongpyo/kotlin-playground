@@ -10,7 +10,7 @@ class LottoMachineTest {
     @DisplayName("입력한 금액만큼 로또 티켓을 발급 (1000원당 1장)")
     @ValueSource(ints = [5_000, 9_999])
     @ParameterizedTest
-    fun issueLottoTickets(money: Int) {
+    fun issueLottoTickets(money: Long) {
         val lottoTicketCount = LottoMoney(money).availableLottoTicketCount()
         val lottoTicketMachine = LottoTicketMachine()
         val lottoTickets = lottoTicketMachine.issueLottoTickets(lottoTicketCount)

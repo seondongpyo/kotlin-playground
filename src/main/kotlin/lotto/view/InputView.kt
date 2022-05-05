@@ -7,9 +7,9 @@ class InputView {
     companion object {
         private val scanner = Scanner(System.`in`)
 
-        fun money(): Int {
+        fun money(): Long {
             println("구입금액을 입력해 주세요.")
-            return scanner.nextInt()
+            return scanner.nextLong()
         }
 
         fun manualLottoTicketCount(): Int {
