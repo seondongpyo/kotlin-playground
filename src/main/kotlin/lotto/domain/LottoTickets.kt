@@ -10,10 +10,11 @@ class LottoTickets(
         return tickets.size
     }
 
-    fun match(winningLottoTicket: WinningLottoTicket): List<LottoRank> {
-        return tickets.stream()
+    fun match(winningLottoTicket: WinningLottoTicket): LottoRanks {
+        val ranks = tickets.stream()
             .map { ticket -> winningLottoTicket.match(ticket) }
             .collect(Collectors.toList())
+        return LottoRanks(ranks)
     }
 
     fun tickets(): List<LottoTicket> {

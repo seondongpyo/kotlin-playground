@@ -32,6 +32,6 @@ class LottoTicketsTest {
         val winningLottoTicket = WinningLottoTicket(setOf(1, 2, 3, 4, 5, 6), 7)
 
         assertThat(lottoTickets.match(winningLottoTicket))
-            .containsExactly(LottoRank.FIRST, LottoRank.SECOND, LottoRank.THIRD)
+            .isEqualTo(LottoRanks(listOf(LottoRank.FIRST, LottoRank.SECOND, LottoRank.THIRD)))
     }
 }
