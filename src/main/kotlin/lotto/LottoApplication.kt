@@ -10,7 +10,7 @@ fun main() {
     val manualLottoTicketNumbers = InputView.manualLottoTicketNumbers(manualLottoTicketCount)
 
     val lottoMachine = LottoTicketMachine()
-    val lottoTickets = lottoMachine.issueLottoTickets(money.availableLottoTicketCount())
+    val lottoTickets = lottoMachine.issueLottoTickets(money.availableLottoTicketCount(), manualLottoTicketNumbers)
     ResultView.showPurchasedLottoTickets(lottoTickets)
 
     val winningNumbers = LottoNumbers.from(InputView.winningNumbers())

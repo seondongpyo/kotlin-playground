@@ -13,7 +13,7 @@ class LottoMachineTest {
     fun issueLottoTickets(money: Long) {
         val lottoTicketCount = LottoMoney(money).availableLottoTicketCount()
         val lottoTicketMachine = LottoTicketMachine()
-        val lottoTickets = lottoTicketMachine.issueLottoTickets(lottoTicketCount)
+        val lottoTickets = lottoTicketMachine.issueLottoTickets(lottoTicketCount, emptyList())
         assertThat(lottoTickets.size()).isEqualTo(lottoTicketCount)
     }
 }

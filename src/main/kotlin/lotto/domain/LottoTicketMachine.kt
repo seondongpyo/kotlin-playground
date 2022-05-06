@@ -6,19 +6,25 @@ import java.util.stream.IntStream
 class LottoTicketMachine {
 
     private val lottoNumberPool = IntStream.rangeClosed(LottoNumber.MIN_VALUE, LottoNumber.MAX_VALUE)
-        .boxed()
-        .collect(Collectors.toList())
+                                    .boxed()
+                                    .collect(Collectors.toList())
 
-    companion object {
-        private const val MONEY_PER_TICKET = 1_000
+    fun issueLottoTickets(totalLottoTicketCount: Int, manualLottoTicketNumbers: List<LottoNumbers>): LottoTickets {
+        val autoLottoTicketCount = totalLottoTicketCount - manualLottoTicketNumbers.size
+        val autoLottoTickets = issueAutoLottoTickets(autoLottoTicketCount)
+        val manualLottoTickets = issueManualLottoTickets(manualLottoTicketNumbers)
+
+        val lottoTickets = arrayListOf<LottoTicket>()
+        lottoTickets.addAll(autoLottoTickets)
+        lottoTickets.addAll(manualLottoTickets)
+
+        return LottoTickets(lottoTickets)
     }
 
-    fun issueLottoTickets(count: Int): LottoTickets {
-        val lottoTickets = arrayListOf<LottoTicket>()
-        for (index in 0 until count) {
-            lottoTickets.add(LottoTicket(pickLottoNumbers()))
-        }
-        return LottoTickets(lottoTickets)
+    private fun issueAutoLottoTickets(autoLottoTicketCount: Int): List<LottoTicket> {
+        return IntStream.range(0, autoLottoTicketCount)
+            .mapToObj { LottoTicket(pickLottoNumbers()) }
+            .collect(Collectors.toList())
     }
 
     private fun pickLottoNumbers(): Set<Int> {
@@ -27,6 +33,12 @@ class LottoTicketMachine {
             .mapToObj { index -> lottoNumberPool[index] }
             .sorted()
             .collect(Collectors.toSet())
+    }
+
+    private fun issueManualLottoTickets(manualLottoTicketNumbers: List<LottoNumbers>): List<LottoTicket> {
+        return manualLottoTicketNumbers.stream()
+            .map { manualLottoNumbers -> manualLottoNumbers.toLottoTicket() }
+            .collect(Collectors.toList())
     }
 
 }
