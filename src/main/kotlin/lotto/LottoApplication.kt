@@ -6,6 +6,9 @@ import lotto.view.ResultView
 
 fun main() {
     val money = LottoMoney(InputView.money())
+    val manualLottoTicketCount = InputView.manualLottoTicketCount()
+    val manualLottoTicketNumbers = InputView.manualLottoTicketNumbers(manualLottoTicketCount)
+
     val lottoMachine = LottoTicketMachine()
     val lottoTickets = lottoMachine.issueLottoTickets(money.availableLottoTicketCount())
     ResultView.showPurchasedLottoTickets(lottoTickets)
