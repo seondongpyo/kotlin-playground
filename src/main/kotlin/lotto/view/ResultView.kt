@@ -8,6 +8,9 @@ import java.util.*
 class ResultView {
 
     companion object {
+        private const val MESSAGE_RESULT_PER_PRIZE = "%d개 일치 (%d원)- %d개"
+        private const val MESSAGE_RESULT_2ND_PRIZE = "%d개 일치, 보너스 볼 일치 (%d원)- %d개"
+
         fun showPurchasedLottoTickets(lottoTickets: LottoTickets) {
             val tickets = lottoTickets.tickets()
             println("%d개를 구매했습니다.".format(tickets.size))
@@ -25,7 +28,13 @@ class ResultView {
 
         private fun printResultPerRank(lottoRanks: LottoRanks, rank: LottoRank) {
             val count = lottoRanks.countOf(rank)
-            println("%d개 일치 (%d원)- %d개".format(rank.matchCount(), rank.prizeMoney(), count))
+            var message = MESSAGE_RESULT_PER_PRIZE
+
+            if (rank.isSecond()) {
+                message = MESSAGE_RESULT_2ND_PRIZE
+            }
+
+            println(message.format(rank.matchCount(), rank.prizeMoney(), count))
         }
     }
 }

@@ -44,4 +44,8 @@ enum class LottoRank(
     fun isNone(): Boolean {
         return this == NONE
     }
+
+    fun isSecond(): Boolean {
+        return this == SECOND
+    }
 }
