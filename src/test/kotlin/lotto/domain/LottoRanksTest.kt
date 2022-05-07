@@ -11,7 +11,7 @@ class LottoRanksTest {
     @DisplayName("모든 당첨 결과로 전체 당첨 금액을 계산")
     @Test
     fun totalPrize() {
-        val ranks = LottoRanks(listOf(FIRST, SECOND, THIRD, FOURTH, NONE))
-        assertThat(ranks.totalPrize()).isEqualTo(BigDecimal.valueOf(2_001_555_000))
+        val ranks = LottoRanks(listOf(FIRST, SECOND, THIRD, FOURTH, FIFTH, NONE))
+        assertThat(ranks.totalPrize()).isEqualTo(BigDecimal.valueOf(2_031_555_000))
     }
 }

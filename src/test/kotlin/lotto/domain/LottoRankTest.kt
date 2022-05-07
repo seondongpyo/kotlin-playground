@@ -23,8 +23,9 @@ class LottoRankTest {
             return Stream.of(
                 Arguments.of(6, false, LottoRank.FIRST),
                 Arguments.of(5, true, LottoRank.SECOND),
-                Arguments.of(4, false, LottoRank.THIRD),
-                Arguments.of(3, false, LottoRank.FOURTH),
+                Arguments.of(5, false, LottoRank.THIRD),
+                Arguments.of(4, false, LottoRank.FOURTH),
+                Arguments.of(3, false, LottoRank.FIFTH),
                 Arguments.of(2, false, LottoRank.NONE),
                 Arguments.of(1, false, LottoRank.NONE),
                 Arguments.of(0, false, LottoRank.NONE),

@@ -26,7 +26,7 @@ class LottoTicketsTest {
             listOf(
                 LottoTicket(setOf(1, 2, 3, 4, 5, 6)),
                 LottoTicket(setOf(1, 2, 3, 4, 5, 7)),
-                LottoTicket(setOf(1, 2, 3, 4, 7, 8)),
+                LottoTicket(setOf(1, 2, 3, 4, 5, 8)),
             ))
 
         val winningLottoTicket = WinningLottoTicket(setOf(1, 2, 3, 4, 5, 6), 7)
