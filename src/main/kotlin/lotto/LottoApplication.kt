@@ -17,4 +17,6 @@ fun main() {
     val bonusNumber = InputView.bonusNumber()
     val winningLottoTicket = WinningLottoTicket(winningNumbers.toLottoTicket(), LottoNumber(bonusNumber))
 
+    val ranks = lottoTickets.match(winningLottoTicket)
+    ResultView.showTotalPrizes(ranks)
 }

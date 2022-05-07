@@ -30,7 +30,15 @@ enum class LottoRank(
         return this.matchCount == matchCount
     }
 
+    fun matchCount() : Int {
+        return this.matchCount
+    }
+
     fun prizeMoney(): Int {
         return this.prizeMoney
+    }
+
+    fun isNone(): Boolean {
+        return this == NONE
     }
 }
