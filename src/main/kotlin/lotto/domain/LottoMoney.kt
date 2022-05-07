@@ -6,7 +6,7 @@ class LottoMoney(
     private val value: BigDecimal
 ) {
 
-    constructor(value: Long): this(BigDecimal.valueOf(value))
+    constructor(value: Long) : this(BigDecimal.valueOf(value))
 
     init {
         if (value < MONEY_PER_TICKET) {
@@ -20,6 +20,10 @@ class LottoMoney(
 
     fun availableLottoTicketCount(): Int {
         return value.divide(MONEY_PER_TICKET).toInt()
+    }
+
+    fun calculateEarningRate(totalPrize: BigDecimal): BigDecimal {
+        return totalPrize.divide(value)
     }
 
     override fun equals(other: Any?): Boolean {

@@ -1,5 +1,6 @@
 package lotto.view
 
+import lotto.domain.LottoMoney
 import lotto.domain.LottoRank
 import lotto.domain.LottoRanks
 import lotto.domain.LottoTickets
@@ -18,12 +19,13 @@ class ResultView {
             println()
         }
 
-        fun showTotalPrizes(lottoRanks: LottoRanks) {
+        fun showTotalPrizes(money: LottoMoney, lottoRanks: LottoRanks) {
             println("\n당첨 통계\n---------")
             Arrays.stream(LottoRank.values())
                 .filter { rank -> !rank.isNone() }
                 .sorted(Comparator.comparingInt(LottoRank::prizeMoney))
                 .forEach { rank -> printResultPerRank(lottoRanks, rank) }
+            println("총 수익률은 %.2f입니다.".format(money.calculateEarningRate(lottoRanks.totalPrize())))
         }
 
         private fun printResultPerRank(lottoRanks: LottoRanks, rank: LottoRank) {
