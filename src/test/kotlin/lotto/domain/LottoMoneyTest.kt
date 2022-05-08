@@ -4,6 +4,7 @@ import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
+import java.math.BigDecimal
 
 class LottoMoneyTest {
 
@@ -25,5 +26,13 @@ class LottoMoneyTest {
     fun availableLottoTicketCount() {
         val lottoMoney = LottoMoney(5000)
         assertThat(lottoMoney.availableLottoTicketCount()).isEqualTo(5)
+    }
+
+    @DisplayName("수익률 계산")
+    @Test
+    fun calculateEarningRate() {
+        val lottoMoney = LottoMoney(5000)
+        val totalPrize = BigDecimal.valueOf(5000)
+        assertThat(lottoMoney.calculateEarningRate(totalPrize)).isEqualTo(BigDecimal.valueOf(1))
     }
 }
