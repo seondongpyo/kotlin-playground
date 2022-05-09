@@ -33,11 +33,11 @@ class LottoTicket(
         return numbers.contains(target)
     }
 
-    fun numbers(): List<Int> {
+    fun numbers(): Set<Int> {
         return numbers.stream()
             .map { number -> number.value() }
             .sorted()
-            .collect(Collectors.toList())
+            .collect(Collectors.toSet())
     }
 
     override fun equals(other: Any?): Boolean {
