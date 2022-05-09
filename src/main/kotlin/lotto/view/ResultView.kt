@@ -20,7 +20,7 @@ class ResultView {
         }
 
         fun showTotalPrizes(money: LottoMoney, lottoRanks: LottoRanks) {
-            println("\n당첨 통계\n---------")
+            println(System.lineSeparator() + "당첨 통계" + System.lineSeparator() + "---------")
             Arrays.stream(LottoRank.values())
                 .filter { rank -> !rank.isNone() }
                 .sorted(Comparator.comparingInt(LottoRank::prizeMoney))
