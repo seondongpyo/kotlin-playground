@@ -6,17 +6,13 @@ class LottoMoney(
     private val value: BigDecimal
 ) {
 
-    constructor(value: Long) : this(BigDecimal.valueOf(value))
-
     init {
         if (value < MONEY_PER_TICKET) {
             throw IllegalArgumentException()
         }
     }
 
-    companion object {
-        private val MONEY_PER_TICKET = BigDecimal.valueOf(1_000)
-    }
+    constructor(value: Long) : this(BigDecimal.valueOf(value))
 
     fun availableLottoTicketCount(): Int {
         return value.divide(MONEY_PER_TICKET).toInt()
@@ -24,6 +20,10 @@ class LottoMoney(
 
     fun calculateEarningRate(totalPrize: BigDecimal): BigDecimal {
         return totalPrize.divide(value)
+    }
+
+    companion object {
+        private val MONEY_PER_TICKET = BigDecimal.valueOf(1_000)
     }
 
     override fun equals(other: Any?): Boolean {

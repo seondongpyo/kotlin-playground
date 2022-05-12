@@ -6,6 +6,10 @@ class LottoNumbers(
     private val numbers: Set<Int>
 ) {
 
+    fun toLottoTicket(): LottoTicket {
+        return LottoTicket(numbers)
+    }
+
     companion object {
         fun from(numbers: String): LottoNumbers {
             val lottoNumbers = numbers.split(",")
@@ -18,10 +22,6 @@ class LottoNumbers(
         fun of(vararg number: Int): LottoNumbers {
             return LottoNumbers(number.toSet())
         }
-    }
-
-    fun toLottoTicket(): LottoTicket {
-        return LottoTicket(numbers)
     }
 
     override fun equals(other: Any?): Boolean {

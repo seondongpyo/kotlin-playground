@@ -18,10 +18,6 @@ class LottoTicket(
         }
     }
 
-    companion object {
-        private const val VALID_SIZE = 6
-    }
-
     fun match(lottoTicket: LottoTicket): Int {
         return numbers.stream()
             .filter { number -> lottoTicket.contains(number) }
@@ -33,11 +29,15 @@ class LottoTicket(
         return numbers.contains(target)
     }
 
-    fun numbers(): Set<Int> {
+    fun numbers(): List<Int> {
         return numbers.stream()
             .map { number -> number.value() }
             .sorted()
-            .collect(Collectors.toSet())
+            .collect(Collectors.toList())
+    }
+
+    companion object {
+        private const val VALID_SIZE = 6
     }
 
     override fun equals(other: Any?): Boolean {

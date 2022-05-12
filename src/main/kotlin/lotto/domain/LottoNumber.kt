@@ -10,13 +10,13 @@ class LottoNumber(
         }
     }
 
+    fun value(): Int {
+        return value
+    }
+
     companion object {
         const val MIN_VALUE = 1
         const val MAX_VALUE = 45
-    }
-
-    fun value(): Int {
-        return value
     }
 
     override fun equals(other: Any?): Boolean {
