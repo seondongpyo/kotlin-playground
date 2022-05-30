@@ -7,9 +7,7 @@ class LottoMoney(
 ) {
 
     init {
-        if (value < MONEY_PER_TICKET) {
-            throw IllegalArgumentException()
-        }
+        require(value >= MONEY_PER_TICKET)
     }
 
     constructor(value: Long) : this(BigDecimal.valueOf(value))

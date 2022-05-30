@@ -5,9 +5,7 @@ class LottoNumber(
 ) {
 
     init {
-        if (value < MIN_VALUE || value > MAX_VALUE) {
-            throw IllegalArgumentException()
-        }
+        require(value >= MIN_VALUE || value <= MAX_VALUE)
     }
 
     fun value(): Int {

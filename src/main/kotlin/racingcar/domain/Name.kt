@@ -5,9 +5,7 @@ class Name(
 ) {
 
     init {
-        if (value.isEmpty() || value.length > MAX_LENGTH) {
-            throw IllegalArgumentException()
-        }
+        require(value.isNotEmpty() && value.length <= MAX_LENGTH)
     }
 
     companion object {

@@ -13,9 +13,7 @@ class LottoTicket(
             .map { LottoNumber(it) }
             .collect(Collectors.toSet())
 
-        if (this.numbers.size != VALID_SIZE) {
-            throw IllegalArgumentException()
-        }
+        require(this.numbers.size == VALID_SIZE)
     }
 
     fun match(lottoTicket: LottoTicket): Int {

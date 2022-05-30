@@ -6,9 +6,7 @@ class WinningLottoTicket(
 ) {
 
     init {
-        if (ticket.contains(bonusNumber)) {
-            throw IllegalArgumentException()
-        }
+        require(!ticket.contains(bonusNumber))
     }
 
     constructor(numbers: Set<Int>, bonusNumber: Int)

@@ -5,9 +5,7 @@ class AttemptCount(
 ) {
 
     init {
-        if (value < MIN_VALUE) {
-            throw IllegalArgumentException()
-        }
+        require(value > MIN_VALUE)
     }
 
     companion object {

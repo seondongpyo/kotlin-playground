@@ -7,9 +7,7 @@ class Position(
 ) {
 
     init {
-        if (value < DEFAULT_VALUE) {
-            throw IllegalArgumentException()
-        }
+        require(value >= DEFAULT_VALUE)
     }
 
     constructor() : this(DEFAULT_VALUE)
