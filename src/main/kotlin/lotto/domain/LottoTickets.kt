@@ -12,7 +12,7 @@ class LottoTickets(
 
     fun match(winningLottoTicket: WinningLottoTicket): LottoRanks {
         val ranks = tickets.stream()
-            .map { ticket -> winningLottoTicket.match(ticket) }
+            .map { winningLottoTicket.match(it) }
             .collect(Collectors.toList())
         return LottoRanks(ranks)
     }

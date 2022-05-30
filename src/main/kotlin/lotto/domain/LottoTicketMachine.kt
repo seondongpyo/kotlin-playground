@@ -30,14 +30,14 @@ class LottoTicketMachine {
     private fun pickLottoNumbers(): Set<Int> {
         lottoNumberPool.shuffle()
         return IntStream.range(0, 6)
-            .mapToObj { index -> lottoNumberPool[index] }
+            .mapToObj { lottoNumberPool[it] }
             .sorted()
             .collect(Collectors.toSet())
     }
 
     private fun issueManualLottoTickets(manualLottoTicketNumbers: List<LottoNumbers>): List<LottoTicket> {
         return manualLottoTicketNumbers.stream()
-            .map { manualLottoNumbers -> manualLottoNumbers.toLottoTicket() }
+            .map { it.toLottoTicket() }
             .collect(Collectors.toList())
     }
 

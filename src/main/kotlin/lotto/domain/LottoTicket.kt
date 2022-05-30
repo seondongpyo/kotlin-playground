@@ -10,7 +10,7 @@ class LottoTicket(
 
     init {
         this.numbers = numbers.stream()
-            .map { number -> LottoNumber(number) }
+            .map { LottoNumber(it) }
             .collect(Collectors.toSet())
 
         if (this.numbers.size != VALID_SIZE) {
@@ -20,7 +20,7 @@ class LottoTicket(
 
     fun match(lottoTicket: LottoTicket): Int {
         return numbers.stream()
-            .filter { number -> lottoTicket.contains(number) }
+            .filter { lottoTicket.contains(it) }
             .count()
             .toInt()
     }
@@ -31,7 +31,7 @@ class LottoTicket(
 
     fun numbers(): List<Int> {
         return numbers.stream()
-            .map { number -> number.value() }
+            .map { it.value() }
             .sorted()
             .collect(Collectors.toList())
     }

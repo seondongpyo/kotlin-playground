@@ -13,7 +13,7 @@ class CarNames(
 
     fun toCars(): Cars {
         val cars = names.stream()
-            .map { name -> Car(name) }
+            .map { Car(it) }
             .collect(Collectors.toList())
         return Cars(cars)
     }

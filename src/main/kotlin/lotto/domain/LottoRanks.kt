@@ -8,14 +8,14 @@ class LottoRanks(
 
     fun totalPrize(): BigDecimal {
         return ranks.stream()
-            .mapToInt { rank -> rank.prizeMoney() }
+            .mapToInt { it.prizeMoney() }
             .sum()
             .toBigDecimal()
     }
 
     fun countOf(rank: LottoRank): Int {
         return ranks.stream()
-            .filter { lottoRank -> lottoRank == rank }
+            .filter { it == rank }
             .count()
             .toInt()
     }

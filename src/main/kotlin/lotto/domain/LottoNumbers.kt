@@ -14,7 +14,7 @@ class LottoNumbers(
         fun from(numbers: String): LottoNumbers {
             val lottoNumbers = numbers.split(",")
                 .stream()
-                .map { number -> Integer.parseInt(number) }
+                .map { Integer.parseInt(it) }
                 .collect(Collectors.toSet())
             return LottoNumbers(lottoNumbers)
         }

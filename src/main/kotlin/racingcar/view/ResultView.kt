@@ -18,7 +18,7 @@ class ResultView {
 
         fun showWinners(winners: List<Car>) {
             val winnerNames = winners.stream()
-                .map { winner -> winner.name() }
+                .map { it.name() }
                 .collect(Collectors.joining(","))
             println("우승자는 %s 입니다.".format(winnerNames))
         }

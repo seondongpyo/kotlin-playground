@@ -17,7 +17,7 @@ enum class LottoRank(
     companion object {
         fun from(matchCount: Int, hasBonusNumber: Boolean): LottoRank {
             val rank = Arrays.stream(values())
-                .filter { rank -> rank.hasCount(matchCount) }
+                .filter { it.hasCount(matchCount) }
                 .findFirst()
                 .orElse(NONE)
 

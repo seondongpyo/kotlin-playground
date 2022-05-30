@@ -15,7 +15,7 @@ class Cars(
     fun winners(): List<Car> {
         val maxPosition = findMaxPosition()
         return cars.stream()
-            .filter { car -> car.isLocatedAt(maxPosition) }
+            .filter { it.isLocatedAt(maxPosition) }
             .collect(Collectors.toList())
     }
 

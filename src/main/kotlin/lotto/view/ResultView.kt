@@ -15,16 +15,16 @@ class ResultView {
         fun showPurchasedLottoTickets(lottoTickets: LottoTickets) {
             val tickets = lottoTickets.tickets()
             println("%d개를 구매했습니다.".format(tickets.size))
-            tickets.forEach { ticket -> println(ticket.numbers()) }
+            tickets.forEach { println(it.numbers()) }
             println()
         }
 
         fun showTotalPrizes(money: LottoMoney, lottoRanks: LottoRanks) {
             println(System.lineSeparator() + "당첨 통계" + System.lineSeparator() + "---------")
             Arrays.stream(LottoRank.values())
-                .filter { rank -> !rank.isNone() }
+                .filter { !it.isNone() }
                 .sorted(Comparator.comparingInt(LottoRank::prizeMoney))
-                .forEach { rank -> printResultPerRank(lottoRanks, rank) }
+                .forEach { printResultPerRank(lottoRanks, it) }
             println("총 수익률은 %.2f입니다.".format(money.calculateEarningRate(lottoRanks.totalPrize())))
         }
 
