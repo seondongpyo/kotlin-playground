@@ -5,7 +5,7 @@ class AttemptCount(
 ) {
 
     init {
-        require(value > MIN_VALUE)
+        require(value >= MIN_VALUE)
     }
 
     companion object {

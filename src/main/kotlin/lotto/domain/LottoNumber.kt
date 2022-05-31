@@ -5,7 +5,7 @@ class LottoNumber(
 ) {
 
     init {
-        require(value >= MIN_VALUE || value <= MAX_VALUE)
+        require(value in MIN_VALUE..MAX_VALUE)
     }
 
     fun value(): Int {
